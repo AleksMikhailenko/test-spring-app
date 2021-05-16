@@ -37,12 +37,18 @@ public class PeopleController {
         return "people/show";
     }
 
+    /**
+     * Get form for create person
+     */
     @GetMapping("/new")
     public String newPerson(Model model) {
         model.addAttribute("person", new Person());
         return "people/new";
     }
 
+    /**
+     * Save person in dao
+     */
     @PostMapping()
     public String create(@ModelAttribute("person") Person person) {
         personDAO.save(person);
